@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>Pricing Slider jQuery</title>
+<meta name="" content="">
+ 
+<link href="css/themes/redmond/jquery-ui.css" rel="stylesheet">
+ 
+ 
+</head>
+
+<body>
+<style>
+	
+#sutlej-slider .tooltip ul {
+	list-style: none; margin: 10px; padding-left: 0px; font-size: 14px; font-weight: 400;
+}
+#sutlej-slider .tooltip::after {
+	transition:border-color 125ms ease-in-out; left: 50%; width: 0px; height: 0px; bottom: -10px; margin-left: -10px; border-top-color: rgb(61, 153, 54); border-right-color: transparent; border-left-color: transparent; border-top-width: 10px; border-right-width: 10px; border-left-width: 10px; border-top-style: solid; border-right-style: solid; border-left-style: solid; position: absolute; content: ""; -webkit-transition: border-color 125ms ease-in-out; -o-transition: border-color 125ms ease-in-out; -moz-transition: border-color 125ms ease-in-out;
+}
+#sutlej-slider .tooltip:hover {
+	background-color: rgb(69, 172, 61);
+}
+#sutlej-slider .tooltip:hover::after {
+	border-top-color: rgb(69, 172, 61);
+}
+#sutlej-slider .tooltip .tooltip-header {
+	background: rgb(216, 235, 215); padding: 7px 2px; text-align: center; color: rgb(92, 89, 71); text-transform: uppercase; letter-spacing: 0.12em; font-family: "Lato", "Helvetica Neue", "Helvetica", Arial, sans-serif; font-size: 0.75em; font-weight: 700;
+}
+#sutlej-slider .tooltip .tooltip-header::before {
+	content: "Drag to calculate price";
+}
+#sutlej-slider .tooltip .tooltip-content {
+	padding: 0px 10px 5px;
+}
+#sutlej-slider .tooltip .tooltip-content a {
+	color: rgb(255, 255, 255); text-decoration: underline;
+}
+#sutlej-slider .tooltip .tooltip-content a:hover {
+	color: rgb(247, 235, 147); text-decoration: none;
+}
+#sutlej-slider .ui-slider-handle {
+	  font-weight: bold; margin-left: -12px; position: absolute; z-index: 2; cursor: pointer;
+}
+#sutlej-slider .ui-slider-range {
+	background: rgb(240, 237, 235); border-radius: 3px; border: 0px currentColor; border-image: none; top: 0px; height: 100%; position: absolute;
+}
+#total .total-text {
+	background: rgb(233, 243, 232); margin-top: 40px;
+}
+#total .total-text p.text-large {
+	text-align: center; padding-top: 15px; padding-bottom: 20px; font-size: 2em !important; margin-bottom: 0px;
+}
+#total .total-text p.text-large span {
+	background-position: left 0px bottom 0px; padding: 0px 5px; font-weight: 700;   background-repeat: repeat-x; background-size: 6px auto;
+}
+@media not all, not all, not all, not all
+{
+#total .total-text p.text-large span {
+  background-size: 6px auto;
+}
+}
+#total .total-text p.text-large a {
+	text-decoration: none;
+}
+@media all and (max-width:767px)
+{
+#sutlej-slider .slider {
+	margin: 0px auto; width: 360px; position: relative;
+}
+}
+@media all and (max-width:480px)
+{
+#sutlej-slider .slider {
+	width: 170px;
+}
+#sutlej-slider .tooltip {
+	width: 150px;
+}
+#total .total-text p.text-large {
+	font-size: 1.38em !important;
+}
+}
+</style>
+<h2>Highlighted (Themed)</h2>
+<div id="sutlej-slider" ></div>
+
+
+
+<table border="1" style="margin-top: 200px">
+
+	<tbody>
+		<tr>
+			<td>
+				Under 50 Employees
+			</td>
+			<td>
+				$50 per month
+			</td>
+			<td>
+				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Having 1 - 100 Employees
+			</td>
+			<td>
+				$100 per month
+			</td>
+			<td>
+				$1 per Employee
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Having More Than 101 Employees
+			</td>
+			<td>
+				$150 per month
+			</td>
+			<td>
+				$0.5 per Employee
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script type="text/javascript">
+   $(function() {
+    $( "#sutlej-slider" ).slider({
+		  min: 1,
+		  max: 500,
+		  step:1,
+		  value:1,
+		  change:function(event,data){
+		  	console.log(data.value)
+		  	/*when value is changed */
+		  },
+		  create:function(event,data){
+		  	$(this).append('<div  class="tooltip"><div class="tooltip-header"></div><div class="tooltip-content"><h3>1 person</h3><ul><li>$25 base price</li><li>$4/person x 1 person</li></ul></div></div>');
+		  }		      	
+    });
+ 
+  }); 
+</script>
+</body>
+</html>
